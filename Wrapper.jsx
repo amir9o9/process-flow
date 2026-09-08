@@ -2,7 +2,7 @@ import ProcessCard from './src/ProcessCard'
 
 // Render all process cards and pass the necessary handlers and data to each one.
 // Render all process cards and pass the necessary handlers and data to each one.
-function Wrapper({ processes, tasks, onToggleTask, onDeleteTask, onDeleteProcess, onAddTask, onUpdateTask }) {
+function Wrapper({ processes, tasks, onToggleTask, onDeleteTask, onDeleteProcess, onAddTask, onUpdateTask, onUpdateProcess }) {
   return (
     <main className='mx-4 my-4 flex flex-wrap gap-4'>
       {processes.map(process => (
@@ -18,6 +18,7 @@ function Wrapper({ processes, tasks, onToggleTask, onDeleteTask, onDeleteProcess
           onDeleteProcess={onDeleteProcess}
           onAddTask={onAddTask}
           onUpdate={onUpdateTask}
+          onUpdateProcess={onUpdateProcess}
         />
       ))}
     </main>

@@ -38,6 +38,11 @@ function App() {
     setTasks(prev => prev.map(t => (t.id === taskId ? { ...t, ...updatedFields } : t)))
   }
 
+  // Update an existing process' fields (title, etc.).
+  function updateProcess(processId, updatedFields) {
+    setProcesses(prev => prev.map(p => (p.id === processId ? { ...p, ...updatedFields } : p)))
+  }
+
   // Remove a process and all tasks belonging to it.
   function deleteProcess(processId) {
     setProcesses(prev => prev.filter(process => process.id !== processId))
@@ -107,6 +112,7 @@ function App() {
         onDeleteProcess={deleteProcess}
         onAddTask={addTask}
         onUpdateTask={updateTask}
+        onUpdateProcess={updateProcess}
       />
     </main>
   )
