@@ -33,6 +33,11 @@ function App() {
     setTasks(prev => prev.filter(task => task.id !== taskId))
   }
 
+  // Update an existing task's fields (called by ProcessCard onSave).
+  function updateTask(taskId, updatedFields) {
+    setTasks(prev => prev.map(t => (t.id === taskId ? { ...t, ...updatedFields } : t)))
+  }
+
   // Remove a process and all tasks belonging to it.
   function deleteProcess(processId) {
     setProcesses(prev => prev.filter(process => process.id !== processId))
@@ -101,6 +106,7 @@ function App() {
         onDeleteTask={deleteTask}
         onDeleteProcess={deleteProcess}
         onAddTask={addTask}
+        onUpdateTask={updateTask}
       />
     </main>
   )
